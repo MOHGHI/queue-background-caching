@@ -34,26 +34,14 @@ class AddView implements ShouldQueue
      */
     public function handle()
     {
-        $users = $this->users;
+
+        View::create(['user_id' => 50000]);
+       /* $users = $this->users;
         if (isset($users) && count($users) > 0) {
             foreach ($users as $user) {
-                View::updateOrCreate(
-                    ['user_id' => $users->id],
-                    ['count' => DB::raw('count + 1')]
-                );
-
+                View::create(['user_id' => $users->id]);
             }
-        }
-    }
-
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
-    private function addUserViews($id)
-    {
-        View::create(['user_id' => $id, 'count' => 1]);
+        }*/
     }
 
 }

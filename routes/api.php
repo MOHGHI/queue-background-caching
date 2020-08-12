@@ -15,8 +15,8 @@ use Illuminate\Http\Request;
 
 Route::group(['prefix' => 'v1', 'namespace' => 'User'], function () {
 
-       Route::get('users','UserController@index');
+       Route::get('users','UserController@view');
 
-       Route::get('users/{id}','UserController@show');
+       Route::get('users/{id}','UserController@visit');
 
   });

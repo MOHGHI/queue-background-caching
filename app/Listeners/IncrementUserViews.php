@@ -16,9 +16,6 @@ class IncrementUserViews
      */
     public function handle(UserVisit $event)
     {
-        Visit::updateOrCreate(
-            ['user_id' => $event -> user -> id],
-            ['count' => DB::raw('count + 1')]
-        );
+        visit::create(['user_id' => $event -> user -> id ]);  // add or duplicate new visit
     }
 }

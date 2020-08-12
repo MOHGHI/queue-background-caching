@@ -13,7 +13,8 @@ class UsersResource extends ResourceCollection
             return [
                 'id' => $data->id,
                 'name' => $data -> name,
-             ];
+                'visits' => $data -> visits,
+              ];
         });
 
         $result['pagination'] = [
