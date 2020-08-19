@@ -1,14 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Visit;
+use App\Models\View;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +39,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    ##################### begin eloquent relationships ########################
+
+    public function views(){
+        return $this  -> hasMany(UserView::class,'user_id');
+    }
+
+    public function visits(){
+        return $this  -> hasMany(Visit::class);
+    }
+
+
+    ##################### end eloquent relationships ########################
+
+
 }
